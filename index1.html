@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <head><meta charset="utf-8">
+
+
+
+<div style="display: flex; align-items: top;">
+    <a href="https://flapjacode.github.io/0xDreamscape/">
+        <img src="https://i.ibb.co/WcgcdKZ/0xDreams.png" alt="0xDreams" border="1" style="width:500px;height:300px;">
+    </a>
+    <p style="font-family:cascadia code light;font-size:60px; margin-left: 20px; color:#aaff00;"><b>Solana Cli</b></p>
+</div>
+
+   </head>
+   <!-- This is a comment: The head section contains metadata and the title of the webpage -->
+    <title>0xDreams Sol-Cli</title>
+ <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+<body>
+
+<ul> 
+
+  <h1 style="font-size:60px;"><b>Downloads</b></h1>
+  
+  
+ 
+ <p style="font-size:20px;font-family:cascadia code light;">First we need rust and the frame of Solana CLI</p>
+<label>
+   Rust WSL (Windows Subsystem Linux):
+    <br>
+    <textarea cols="75"  rows="2" name="content">curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+
+	<p style="font-size:20px;font-family:cascadia code light;">If you do not have wsl/Ubuntu click here for <a href="https://www.rust-lang.org/tools/install/">RUST</a></p>
+ 
+ 
+ <li><label>
+   Solana CLI Linux:
+    <br>
+    <textarea cols="75"  rows="2" name="content">sh -c "$(curl -sSfL https://release.solana.com/v1.9.5/install)"</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+  </li>
+  
+	 <li> <label>
+   Solana CLI Windows:
+    <br>
+    <textarea cols="75"  rows="2" name="content">curl https://release.solana.com/v1.9.5/solana-install-init-x86_64-pc-windows-msvc.exe --output C:\solana-install-tmp\solana-install-init.exe --create-dirs"</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	</li>
+	
+	
+ <p style="font-size:20px;font-family:cascadia code light;">With the Solana CLI the next part of this initial step is<br>
+ to also install the SPL CLI for creating our token.</p>
+	
+	 <li> <label>
+  Spl CLI
+    <br>
+    <textarea cols="75"  rows="2" name="content">cargo install spl-token-cli</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	</li>
+	</ul>
+	
+<h3 style="font-size:30px;font-family:cascadia code light;">After successful install we can begin!<h3>
+	
+	<ol>
+	
+	 <li> <label>
+  Setting up a cmd Wallet:
+    <br>
+    <textarea cols="75"  rows="2" name="content">solana-keygen new --no-outfile</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	</li>
+		
+<p style="font-size:20px;font-family:cascadia code light;">You can just hit enter when prompted about BIP39 passkey and you should get an output of your new seedphrase. Dont loose this.<br>
+ Check youve created wallet successfuly by entering: 
+		 
+		 <li> <label>
+	<br>
+    <textarea cols="75"  rows="2" name="content">Solana Balance</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	</li>
+	</ul>
+<p style="font-size:20px;font-family:cascadia code light;">Now lets check and set our cluster to the devnet for the first token mint. For a real token follow these steps on the main  net.
+	
+	<label>
+  Config get/set
+    <br>
+    <textarea cols="75"  rows="2" name="content">solana config get</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	<p  style="font-size:20px;font-family:cascadia code light;">this should return with:<br>
+	Config File: /home/flapjack/.config/solana/cli/config.yml<br>
+RPC URL: https://api.mainnet-beta.solana.com<br>
+WebSocket URL: wss://api.mainnet-beta.solana.com/ (computed)<br>
+Keypair Path: solana-keypair.json<br>
+Commitment: confirmed<br>
+</p>
+	
+	 <label>
+ Change to Devnet:
+    <br>
+    <textarea cols="75"  rows="2" name="content">solana config set --url https://api.devnet.solana.com</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	<br>
+	
+	  <label>
+ Airdrop
+    <br>
+    <textarea cols="75"  rows="2" name="content">solana airdrop 1</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	<br>
+		
+		 <li> <label>
+ Token Creation
+    <br>
+    <textarea cols="75"  rows="2" name="content">spl-token create-token</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	</li>
+	<br>
+	<p style="font-size:20px;font-family:cascadia code light;"> If successful you will see: "creating token" and another BIP39 identifier</p>
+		 
+		 <li> <label>
+ Token Account
+    <br>
+    <textarea cols="75"  rows="2" name="content">spl-token create-account (token-identifier)</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	</li>
+	<br>
+	
+		  <label>
+ Token Mint
+    <br>
+    <textarea cols="75"  rows="2" name="content"> spl-token mint (token-identifier) (token-amount)</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	</li>
+	<br>
+	
+	 <label>
+ Check Tokens:
+    <br>
+    <textarea cols="75"  rows="2" name="content">spl-token accounts</textarea><br><button onclick="myFunction()">Copy text</button>
+</label>
+	</li>
+	<br>
+	
+	<p>CONTACT DEV
+	<a  href="https://twitter.com/Flapjacks4All"><p>Twitter</p></a>
+ 
+</body>
+
+
+    <!-- Anchor tag with href attribute -->
+
+</body>
+
+</html>
